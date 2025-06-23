@@ -1,0 +1,26 @@
+{% extends 'news/base.html' %}
+
+{% load static %}
+{% load hitcount_tags %}
+{% block title %} Xorij Yangiliklari {% endblock title %}
+
+{% block content %}
+
+
+        <div class="news-container">
+            {% for news in mahallliy_xabarlar %}
+            <div class="news-item">
+
+                <a href="{{ news.get_absolute_url }}">
+                  <img src="{{news.image.url}}" alt="{{ news.title }}" style="width:50%">
+                  <h3>{{ news.title }}</h3>
+                    <p>{% blocktrans %} Ko'rishlar soni {% endblocktrans %}: <i class="fa fa-eye" aria-hidden="true" style="color:blue"></i>: {% get_hit_count for news %} </p>
+                </a>
+
+
+            </div>
+            {% endfor %}
+        </div>
+
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} Tizimdan chiqish {% endblock title %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Tizimdan chiqish</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center">Haqiqatan ham tizimdan chiqmoqchimisiz?</p>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-danger">Ha, chiqish</button>
+                                <a href="{% url 'home_page' %}" class="btn btn-secondary">Bekor qilish</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
