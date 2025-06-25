@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 
 from django.conf.global_settings import MEDIA_URL, MEDIA_ROOT, STATICFILES_DIRS, STATIC_ROOT, STATICFILES_FINDERS, \
@@ -144,13 +145,24 @@ LOCALE_PATHS = (BASE_DIR / 'locale', )
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [ BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+
+
+# static fayllar uchun asosiy papka
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# agar siz localda ham test qilayotgan bo‘lsangiz
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
 ]
+
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS = [ BASE_DIR / 'static']
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+# ]
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
