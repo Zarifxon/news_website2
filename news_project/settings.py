@@ -14,12 +14,10 @@ from pathlib import Path
 import os
 
 
-from django.conf.global_settings import MEDIA_URL, MEDIA_ROOT, STATICFILES_DIRS, STATIC_ROOT, STATICFILES_FINDERS, \
-    LOGIN_REDIRECT_URL, EMAIL_BACKEND, LOGOUT_REDIRECT_URL
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -164,7 +162,7 @@ STATICFILES_DIRS = [
 #     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 # ]
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
